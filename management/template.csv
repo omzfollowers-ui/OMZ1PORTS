@@ -1,0 +1,4 @@
+Type,Company,Contact,Email,Phone,Value,Stage,Notes
+deal,Example Co,Jane Doe,jane@example.com,,5000,Prospect,Initial outreach
+sponsor,Acme Corp,John Smith,john@acme.com,,10000,Prospect,Requested media kit
+enquiry,Visitor,Unknown,info@example.com,,0,New,Via website form
