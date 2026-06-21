@@ -42,6 +42,14 @@ npm run build
 npm run preview
 ```
 
+### Deploy to GitHub Pages
+
+1. Merge your branch into `main`.
+2. Enable GitHub Pages in repository settings.
+3. Set source to the `gh-pages` branch.
+
+GitHub Actions will build the app and publish the generated `dist/` folder automatically.
+
 ## Useful scripts
 
 - `npm run dev` — start the local development server
