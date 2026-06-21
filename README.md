@@ -1,20 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# OMZ1PORTS
 
-# Run and deploy your AI Studio app
+A Vite + React + Tailwind CSS landing page for the OMZ Sports media site.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/8557bac5-4251-4318-9b80-6505e7858ed0
+- React app with animated sections using `motion`
+- Tailwind CSS styling powered by `@tailwindcss/vite`
+- Local preview with Vite
+- Build-ready production bundle
 
-## Run Locally
+## Getting Started
 
-**Prerequisites:**  Node.js
+### Prerequisites
 
+- Node.js 24+ (recommended)
+- npm
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+Open the browser at `http://localhost:3000` or the forwarded Codespaces preview URL.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+## Useful scripts
+
+- `npm run dev` — start the local development server
+- `npm run build` — create a production build
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run TypeScript type-checking
+
+## Project structure
+
+- `src/App.tsx` — main application markup and layout
+- `src/main.tsx` — React app entry point
+- `src/index.css` — Tailwind and custom styles
+- `vite.config.ts` — Vite configuration
+
+## Notes
+
+This project does not require `GEMINI_API_KEY` for the current UI preview.

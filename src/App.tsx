@@ -4,7 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { PlayCircle, Mic, Newspaper, Trophy, ArrowRight, Menu, Activity, Youtube } from 'lucide-react';
+import { PlayCircle, Mic, Newspaper, Trophy, ArrowRight, Menu, Activity, Video } from 'lucide-react';
 import { useState } from 'react';
 
 export default function App() {
@@ -28,12 +28,15 @@ export default function App() {
               <a href="#shows" className="hover:text-red-500 transition-colors">ORIGINALS</a>
               <a href="#podcasts" className="hover:text-red-500 transition-colors">PODCASTS</a>
               <a href="#live" className="hover:text-red-500 transition-colors">LIVE</a>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95">
+              <button type="button" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95">
                 SUBSCRIBE
               </button>
             </div>
 
             <button 
+              type="button"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               className="md:hidden text-slate-300 hover:text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -41,6 +44,18 @@ export default function App() {
             </button>
           </div>
         </div>
+
+        {isMenuOpen && (
+          <div id="mobile-menu" className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-lg">
+            <div className="max-w-7xl mx-auto px-4 py-4 space-y-3">
+              <a href="#news" onClick={() => setIsMenuOpen(false)} className="block text-white font-medium hover:text-red-500 transition-colors">NEWS</a>
+              <a href="#shows" onClick={() => setIsMenuOpen(false)} className="block text-white font-medium hover:text-red-500 transition-colors">ORIGINALS</a>
+              <a href="#podcasts" onClick={() => setIsMenuOpen(false)} className="block text-white font-medium hover:text-red-500 transition-colors">PODCASTS</a>
+              <a href="#live" onClick={() => setIsMenuOpen(false)} className="block text-white font-medium hover:text-red-500 transition-colors">LIVE</a>
+              <button type="button" className="w-full text-left bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-full font-bold transition-all">SUBSCRIBE</button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -60,28 +75,73 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-bold tracking-wide mb-6">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-              LIVE: THE DRAFT PREVIEW
+              LIVE: WEEKLY BIG GAME
             </div>
             <h1 className="font-display font-black text-5xl sm:text-6xl lg:text-8xl leading-[1.1] tracking-tight mb-6 uppercase">
-              The Heartbleed <br className="hidden sm:block"/>
+              OMZ Sports:
+              <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700">
-                Of The Game
+                The Pulse of the Game
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
-              omzsports.com is your premier destination for sports entertainment media. 
-              Unfiltered opinions, exclusive interviews, and cinematic storytelling from the sidelines to the studio.
+              OMZ Sports delivers the best of sports media with original series, premium podcasts, and live coverage.
+              Bold opinions, cinematic storytelling, and insider access for fans who want more than the box score.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:shadow-[0_0_30px_-5px_rgba(220,38,38,0.5)]">
+              <button className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_-5px_rgba(220,38,38,0.5)] active:translate-y-0">
                 <PlayCircle className="w-5 h-5" />
-                Watch Latest Episode
+                Watch The Latest Episode
               </button>
               <button className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all border border-slate-700 hover:border-slate-600">
-                Explore Network
+                Explore the Network
               </button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* News Section */}
+      <section className="py-24 bg-slate-900" id="news">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight mb-4">Latest News</h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto rounded-full" />
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Trade Deadline Insights',
+                summary: 'Expert breakdowns of the biggest moves and how they reshape the season.',
+              },
+              {
+                title: 'Injury Updates',
+                summary: 'Fast, accurate coverage of roster changes and recovery timelines.',
+              },
+              {
+                title: 'Front Office Rumors',
+                summary: 'Behind-the-scenes commentary on the latest team strategies and signings.',
+              },
+            ].map((item, idx) => (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-3xl bg-slate-950 border border-slate-800 p-8 hover:border-red-600/50 transition-colors"
+              >
+                <h3 className="font-display font-bold text-2xl mb-4">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{item.summary}</p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -102,7 +162,7 @@ export default function App() {
             {[
               { icon: Newspaper, title: "Breaking News", desc: "Real-time updates, trades, and injury reports as they happen." },
               { icon: Mic, title: "OMZ Podcasts", desc: "Deep dive analysis with athletes, coaches, and sports icons." },
-              { icon: Youtube, title: "Video Originals", desc: "Cinematic documentaries and behind-the-scenes access." },
+              { icon: Video, title: "Video Originals", desc: "Cinematic documentaries and behind-the-scenes access." },
               { icon: Trophy, title: "Live Analytics", desc: "Next-gen stats and predictive breakdowns for the ultimate fan." },
             ].map((feature, i) => (
               <motion.div 
@@ -119,6 +179,47 @@ export default function App() {
                 <h3 className="font-display font-bold text-xl mb-3">{feature.title}</h3>
                 <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Podcasts Section */}
+      <section className="py-24 bg-slate-900" id="podcasts">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight mb-4">Podcasts</h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto rounded-full" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'The Locker Room',
+                desc: 'Weekly debates with insiders, athletes, and culture makers.',
+              },
+              {
+                title: 'Beyond the Field',
+                desc: 'Personal stories that connect sports, society, and entertainment.',
+              },
+            ].map((item, idx) => (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-3xl bg-slate-950 border border-slate-800 p-8 hover:border-red-600/50 transition-colors"
+              >
+                <h3 className="font-display font-bold text-3xl mb-4">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                <button type="button" className="mt-8 inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-bold transition-all">Listen Now</button>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -175,6 +276,50 @@ export default function App() {
               </div>
               <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center mix-blend-overlay group-hover:opacity-40 transition-opacity duration-700" />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Coverage Section */}
+      <section className="py-24 bg-slate-950" id="live">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight mb-4">Live Coverage</h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto rounded-full" />
+          </motion.div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {[
+              {
+                title: 'Game Day Streams',
+                detail: 'Real-time analysis and behind-the-scenes access for every major event.',
+              },
+              {
+                title: 'Interactive Polls',
+                detail: 'Vote on plays, picks, and predictions as the action unfolds.',
+              },
+              {
+                title: 'Instant Alerts',
+                detail: 'Stay connected with live breaking news and score updates.',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-3xl bg-slate-900 border border-slate-800 p-8"
+              >
+                <h3 className="font-display font-bold text-2xl mb-3">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{item.detail}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
