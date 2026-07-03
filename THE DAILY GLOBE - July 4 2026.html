@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DAILY GLOBE — Friday, July 4, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #cccccc;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px 0 10px 0;
+            border-bottom: 3px solid #cc0000;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #cc0000;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(204, 0, 0, 0.5);
+        }
+
+        .date {
+            font-size: 11px;
+            color: #999999;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Ticker */
+        .ticker-wrap {
+            background: #ffcc00;
+            color: #000000;
+            padding: 8px 0;
+            overflow: hidden;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 90s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Breaking dot */
+        .breaking-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #cc0000;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+
+        /* Banner Headline */
+        .banner-headline {
+            text-align: center;
+            padding: 20px 10px;
+            margin-bottom: 20px;
+            background: #0a0a0a;
+            border: 1px solid #333333;
+        }
+
+        .banner-headline a {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: bold;
+            line-height: 1.3;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .banner-headline a:hover {
+            color: #cc0000;
+        }
+
+        .banner-sub {
+            font-size: 14px;
+            color: #cccccc;
+            margin: 10px 0;
+        }
+
+        .banner-sub a {
+            color: #cccccc;
+        }
+
+        .banner-sub a:hover {
+            color: #ffffff;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar {
+            font-size: 11px;
+        }
+
+        .sidebar h3 {
+            color: #cc0000;
+            font-size: 12px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 3px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar a {
+            color: #999999;
+            font-size: 11px;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+        }
+
+        /* Three Column News */
+        .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .column ul {
+            list-style: none;
+        }
+
+        .column li {
+            margin-bottom: 12px;
+        }
+
+        .column li a {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .column li a:hover {
+            color: #cc0000;
+        }
+
+        .column li.sub {
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+        }
+
+        .column li.sub a {
+            color: #999999;
+            font-weight: normal;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .column li.sub a:hover {
+            color: #cccccc;
+        }
+
+        /* US News Section */
+        .us-news {
+            background: #0a0a0a;
+            border: 2px solid #333333;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .us-news h2 {
+            color: #cc0000;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .us-news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px;
+        }
+
+        .us-news-grid ul {
+            list-style: none;
+        }
+
+        .us-news-grid li {
+            margin-bottom: 12px;
+        }
+
+        .us-news-grid li a {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .us-news-grid li a:hover {
+            color: #cc0000;
+        }
+
+        .us-news-grid li.sub {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        .us-news-grid li.sub a {
+            color: #999999;
+            font-weight: normal;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        /* World Newspapers */
+        .world-newspapers {
+            margin-bottom: 30px;
+        }
+
+        .world-newspapers h2 {
+            color: #cc0000;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .newspapers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .newspapers-grid a {
+            color: #ffcc00;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .newspapers-grid a:hover {
+            color: #ffffff;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #0a0a0a;
+            border: 1px solid #333333;
+        }
+
+        .quick-links a {
+            color: #ffcc00;
+            margin: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .quick-links a:hover {
+            color: #ffffff;
+        }
+
+        /* RPM Table */
+        .rpm-section {
+            margin-bottom: 30px;
+        }
+
+        .rpm-section h3 {
+            color: #cc0000;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .rpm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            background: #0a0a0a;
+        }
+
+        .rpm-table th {
+            background: #1a1a1a;
+            color: #cc0000;
+            padding: 8px;
+            border: 1px solid #333333;
+            font-weight: bold;
+        }
+
+        .rpm-table td {
+            padding: 6px 8px;
+            border: 1px solid #333333;
+            color: #cccccc;
+        }
+
+        .rpm-table tr:nth-child(even) {
+            background: #050505;
+        }
+
+        .rpm-table a {
+            color: #0066cc;
+        }
+
+        /* Ad Networks */
+        .ad-networks {
+            margin-bottom: 30px;
+        }
+
+        .ad-networks h3 {
+            color: #cc0000;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .ad-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .ad-grid a {
+            color: #999999;
+        }
+
+        .ad-grid a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #cc0000;
+            font-size: 11px;
+            color: #666666;
+        }
+
+        .footer a {
+            color: #999999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+            .three-columns {
+                grid-template-columns: 1fr;
+            }
+            .us-news-grid {
+                grid-template-columns: 1fr;
+            }
+            .newspapers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ad-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">THE DAILY GLOBE</div>
+            <div class="date">FRIDAY, JULY 4, 2026 — AMERICA'S 250TH BIRTHDAY</div>
+        </div>
+
+        <!-- Ticker -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="breaking-dot"></span>
+                🔴 LIVE: Miracle rescue in Venezuela — man pulled alive after 8 days under earthquake rubble • Iran Supreme Leader Khamenei funeral preparations underway in Tehran • Gaza marks 1,000 days of war • Trump Accounts launch July 4 — $1,000 for every newborn • ICE arrests 10,000 in 5 days in deportation surge • England vs Mexico — World Cup Round of 16 set for Azteca Stadium • Extreme heat grips US ahead of July 4 weekend • Asian stocks fall as chipmakers drag • Pubs in England open until 5am for World Cup • Starmer apologises for forced adoptions scandal
+            </div>
+        </div>
+
+        <!-- Banner Headline -->
+        <div class="banner-headline">
+            <a href="https://apnews.com/article/venezuela-earthquake-survivor-gil-flores-security-guard-ecb4f8db7608e16dd09bcca962a35bc8" target="_blank">
+                MIRACLE IN VENEZUELA — SURVIVOR PULLED ALIVE FROM RUBBLE 8 DAYS AFTER TWIN EARTHQUAKES KILLED 2,200...
+            </a>
+            <div class="banner-sub">
+                <a href="https://www.cnn.com/2026/07/02/americas/venezuela-earthquake-survivor-rescued-intl-hnk" target="_blank">
+                    Rescue teams pulled Hernán Alberto Gil from collapsed mall 29 feet underground...
+                </a>
+            </div>
+            <div class="banner-sub">
+                <a href="https://apnews.com/article/venezuela-earthquake-rescue-delcy-rodriguez-7e9964076f51a68d656f5727551f1f72" target="_blank">
+                    Death toll from June 24 twin quakes (7.2 and 7.5 magnitude) surpasses 2,200...
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Layout with Sidebars -->
+        <div class="main-layout">
+            <!-- Left Sidebar -->
+            <div class="sidebar">
+                <h3>MEDIA</h3>
+                <ul>
+                    <li><a href="https://www.nytimes.com" target="_blank">NY TIMES</a></li>
+                    <li><a href="https://www.washingtonpost.com" target="_blank">WASH POST</a></li>
+                    <li><a href="https://www.wsj.com" target="_blank">WALL ST JOURNAL</a></li>
+                    <li><a href="https://www.latimes.com" target="_blank">LA TIMES</a></li>
+                    <li><a href="https://www.usatoday.com" target="_blank">USA TODAY</a></li>
+                    <li><a href="https://www.nypost.com" target="_blank">NY POST</a></li>
+                    <li><a href="https://www.chicagotribune.com" target="_blank">CHICAGO TRIB</a></li>
+                </ul>
+
+                <h3>WIRE</h3>
+                <ul>
+                    <li><a href="https://apnews.com" target="_blank">AP</a></li>
+                    <li><a href="https://www.reuters.com" target="_blank">REUTERS</a></li>
+                    <li><a href="https://www.upi.com" target="_blank">UPI</a></li>
+                    <li><a href="https://www.afp.com" target="_blank">AFP</a></li>
+                </ul>
+
+                <h3>TV NEWS</h3>
+                <ul>
+                    <li><a href="https://www.cnn.com" target="_blank">CNN</a></li>
+                    <li><a href="https://www.foxnews.com" target="_blank">FOX NEWS</a></li>
+                    <li><a href="https://www.msnbc.com" target="_blank">MSNBC</a></li>
+                    <li><a href="https://abcnews.go.com" target="_blank">ABC NEWS</a></li>
+                    <li><a href="https://www.cbsnews.com" target="_blank">CBS NEWS</a></li>
+                    <li><a href="https://www.nbcnews.com" target="_blank">NBC NEWS</a></li>
+                </ul>
+
+                <h3>INTERNATIONAL</h3>
+                <ul>
+                    <li><a href="https://www.bbc.com" target="_blank">BBC</a></li>
+                    <li><a href="https://www.theguardian.com" target="_blank">GUARDIAN</a></li>
+                    <li><a href="https://www.aljazeera.com" target="_blank">AL JAZEERA</a></li>
+                    <li><a href="https://www.dw.com" target="_blank">DW</a></li>
+                </ul>
+            </div>
+
+            <!-- Three Columns -->
+            <div class="three-columns">
+                <!-- Left Column -->
+                <div class="column">
+                    <ul>
+                        <li><a href="https://www.reuters.com/video/watch/idRW433402072026RP1/" target="_blank">IRAN-US PEACE TALKS CONCLUDE IN DOHA — STRAIT OF HORMUZ FOCUS...</a></li>
+                        <li class="sub"><a href="https://www.reuters.com/world/china/global-markets-wrapup-1-2026-07-02/" target="_blank">Oil prices ease as US and Iran agree to halt attacks and renew talks...</a></li>
+                        
+                        <li><a href="https://www.reuters.com/video/watch/idRW454402072026RP1/" target="_blank">IRAN SUPREME LEADER KHAMENEI FUNERAL PREPARATIONS UNDERWAY IN TEHRAN...</a></li>
+                        
+                        <li><a href="https://www.reuters.com/world/middle-east/explosion-heard-damascus-cause-unclear-syrian-state-tv-says-2026-07-02/" target="_blank">DAMASCUS CAFE BOMB BLAST KILLS 6, WOUNDS 22 IN CENTRAL SYRIA...</a></li>
+                        <li class="sub"><a href="https://apnews.com/article/syria-damascus-explosion-cafe-76f2fb50e181c968cbb578554cbc125d" target="_blank">Islamic State suspected — Syria's new rulers crack down on militants...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/gaza-palestinian-israel-thousand-days-war-ceasefire-f81c32c32a96cd7dd7952ef9b70b06b3" target="_blank">GAZA MARKS 1,000 DAYS OF WAR — PROTESTS ERUPT OUTSIDE ISRAELI PARLIAMENT...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/venezuela-earthquake-rescue-delcy-rodriguez-7e9964076f51a68d656f5727551f1f72" target="_blank">VENEZUELA EARTHQUAKE DEATH TOLL SURPASSES 2,200 AS RESCUE CREWS DIG ON...</a></li>
+                        <li class="sub"><a href="https://www.cnn.com/2026/07/02/americas/venezuela-earthquake-survivor-rescued-intl-hnk" target="_blank">Rescue teams cling to hope — black smoke and smell of bodies across ruins...</a></li>
+                        
+                        <li><a href="https://www.reuters.com/world/china/global-markets-wrapup-1-2026-07-02/" target="_blank">ASIAN SHARES FALL AS CHIPMAKERS DRAG AHEAD OF US JOBS DATA...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Center Column -->
+                <div class="column">
+                    <ul>
+                        <li><a href="https://www.reuters.com/world/uk/uks-starmer-apologises-mothers-children-traumatised-by-decades-forced-adoptions-2026-07-02/" target="_blank">STARMER APOLOGISES FOR STATE'S ROLE IN DECADES OF FORCED ADOPTIONS...</a></li>
+                        <li class="sub"><a href="https://www.aljazeera.com/news/2026/7/2/uks-starmer-apologises-for-the-states-role-in-decades-of-forced-adoptions" target="_blank">185,000 children separated from mothers in post-WW2 Britain — 'stain on history'...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/world-cup-england-mexico-altitude-d23b7ec771d72dac499da7784fa76ffc" target="_blank">ENGLAND VS MEXICO — WORLD CUP ROUND OF 16 AT AZTECA STADIUM SUNDAY...</a></li>
+                        <li class="sub"><a href="https://www.espn.com/soccer/story/_/id/49243099/fifa-world-cup-2026-stats-harry-kane-joins-lionel-messi-passes-pele-youri-tielemans-goal-latest-ever-usa-4" target="_blank">Kane's brace sank Congo 2-1 — Tuchel warns of altitude challenge in Mexico City...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/pubs-extension-world-cup-england-mexico-e7c9ccb4107e921991ca571d28a0e003" target="_blank">PUBS IN ENGLAND CAN STAY OPEN UNTIL 5AM FOR ENGLAND VS MEXICO GAME...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/canada-philippines-marcos-carney-free-trade-a4226936fcaa3f2cd53a29ed53e37602" target="_blank">CANADA PM CARNEY DEEPENS PHILIPPINES TIES AS OTTAWA LOOKS BEYOND US TRADE...</a></li>
+                        
+                        <li><a href="https://www.espn.com/soccer/story/_/id/49243099/fifa-world-cup-2026-stats-harry-kane-joins-lionel-messi-passes-pele-youri-tielemans-goal-latest-ever-usa-4" target="_blank">USA BEAT BOSNIA 2-0 TO REACH WORLD CUP ROUND OF 16...</a></li>
+                        <li class="sub"><a href="https://www.espn.com/soccer/story/_/id/49243099/" target="_blank">Balogun red card overshadows US victory — faces ban for Belgium game...</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column -->
+                <div class="column">
+                    <ul>
+                        <li><a href="https://apnews.com/article/trump-accounts-july-4-what-to-know-c0a6f07548acb9f792be160965fbfbec" target="_blank">TRUMP ACCOUNTS LAUNCH JULY 4 — $1,000 DEPOSITED FOR EVERY NEWBORN IN AMERICA...</a></li>
+                        <li class="sub"><a href="https://apnews.com/article/trump-accounts-july-4-what-to-know-c0a6f07548acb9f792be160965fbfbec" target="_blank">Accounts can also be opened for older children before year-end...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/immigration-arrests-border-ice-trump-a748345d743ebc84b5a20b71abea21" target="_blank">ICE ARRESTS 10,000 IN 5 DAYS — SHARPEST LATE-JUNE SURGE IN TRUMP DEPORTATION PUSH...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/trump-republicans-democrats-communism-election-2026-5381c24e8eb4235ae993e812ad45ffbd" target="_blank">TRUMP BRANDS DEMOCRATS 'GODLESS COMMUNISTS' IN MIDTERM ELECTION PUSH...</a></li>
+                        
+                        <li><a href="https://apnews.com/article/reflecting-pool-arrest-felony-trump-renovations-vandalism-d946ccf6bfc5207d4c5380b9001b7c26" target="_blank">FORMER OLYMPIAN INDICTED ON FELONY CHARGE IN REFLECTING POOL VANDALISM CASE...</a></li>
+                        
+                        <li><a href="https://raillynews.com/2026/07/japan-plans-ai-driven-workforce-with-millions-of-robots/" target="_blank">JAPAN PLANS AI-DRIVEN WORKFORCE — 10 MILLION ROBOTS DEPLOYED BY 2040...</a></li>
+                        
+                        <li><a href="https://raillynews.com/2026/07/openai-launches-new-product-on-july-15/" target="_blank">OPENAI ANNOUNCES MAJOR NEW PRODUCT LAUNCH ON JULY 15...</a></li>
+                        
+                        <li><a href="https://www.reuters.com/video/watch/idRW433302072026RP1/" target="_blank">EXTREME HEAT GRIPS US — COOLING CENTRES OPEN IN NEW YORK AND ATLANTA...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="sidebar">
+                <h3>COLUMNISTS</h3>
+                <ul>
+                    <li><a href="https://www.nytimes.com/column/paul-krugman" target="_blank">KRUGMAN</a></li>
+                    <li><a href="https://www.washingtonpost.com/people/george-will/" target="_blank">WILL</a></li>
+                    <li><a href="https://www.nytimes.com/column/david-brooks" target="_blank">BROOKS</a></li>
+                    <li><a href="https://www.washingtonpost.com/people/jennifer-rubin/" target="_blank">RUBIN</a></li>
+                </ul>
+
+                <h3>TECH</h3>
+                <ul>
+                    <li><a href="https://techcrunch.com" target="_blank">TECHCRUNCH</a></li>
+                    <li><a href="https://www.theverge.com" target="_blank">THE VERGE</a></li>
+                    <li><a href="https://arstechnica.com" target="_blank">ARS TECHNICA</a></li>
+                    <li><a href="https://www.wired.com" target="_blank">WIRED</a></li>
+                    <li><a href="https://www.cnet.com" target="_blank">CNET</a></li>
+                </ul>
+
+                <h3>BUSINESS</h3>
+                <ul>
+                    <li><a href="https://www.bloomberg.com" target="_blank">BLOOMBERG</a></li>
+                    <li><a href="https://www.ft.com" target="_blank">FIN TIMES</a></li>
+                    <li><a href="https://www.cnbc.com" target="_blank">CNBC</a></li>
+                    <li><a href="https://www.marketwatch.com" target="_blank">MARKETWATCH</a></li>
+                </ul>
+
+                <h3>SPORTS</h3>
+                <ul>
+                    <li><a href="https://www.espn.com" target="_blank">ESPN</a></li>
+                    <li><a href="https://www.si.com" target="_blank">SPORTS ILLUS</a></li>
+                    <li><a href="https://www.cbssports.com" target="_blank">CBS SPORTS</a></li>
+                    <li><a href="https://www.bleacherreport.com" target="_blank">BLEACHER RPT</a></li>
+                </ul>
+
+                <h3>ENTERTAINMENT</h3>
+                <ul>
+                    <li><a href="https://variety.com" target="_blank">VARIETY</a></li>
+                    <li><a href="https://www.hollywoodreporter.com" target="_blank">HOLLYWOOD RPT</a></li>
+                    <li><a href="https://deadline.com" target="_blank">DEADLINE</a></li>
+                    <li><a href="https://www.tmz.com" target="_blank">TMZ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- US News Section -->
+        <div class="us-news">
+            <h2>★ ★ ★ US NEWS ★ ★ ★</h2>
+            <div class="us-news-grid">
+                <ul>
+                    <li><a href="https://apnews.com/article/trump-accounts-july-4-what-to-know-c0a6f07548acb9f792be160965fbfbec" target="_blank">TRUMP ACCOUNTS LAUNCH JULY 4 — $1,000 FOR EVERY NEWBORN IN AMERICA...</a></li>
+                    <li class="sub"><a href="https://apnews.com/article/trump-accounts-july-4-what-to-know-c0a6f07548acb9f792be160965fbfbec" target="_blank">Accounts tied to 250th anniversary of Declaration of Independence...</a></li>
+                    
+                    <li><a href="https://apnews.com/article/immigration-arrests-border-ice-trump-a748345d743ebc84b5a20b71abea21" target="_blank">ICE ARRESTS 10,000 IN 5 DAYS — LARGEST SURGE IN DEPORTATION CAMPAIGN...</a></li>
+                    
+                    <li><a href="https://apnews.com/article/trump-republicans-democrats-communism-election-2026-5381c24e8eb4235ae993e812ad45ffbd" target="_blank">TRUMP: DEMOCRATS ARE 'GODLESS COMMUNISTS' — BIGGEST THREAT SINCE FOUNDING...</a></li>
+                    <li class="sub"><a href="https://apnews.com/article/trump-republicans-democrats-communism-election-2026-5381c24e8eb4235ae993e812ad45ffbd" target="_blank">Republicans aim to shift debate away from Iran war price surge fallout...</a></li>
+                    
+                    <li><a href="https://apnews.com/article/reflecting-pool-arrest-felony-trump-renovations-vandalism-d946ccf6bfc5207d4c5380b9001b7c26" target="_blank">FORMER OLYMPIAN INDICTED IN REFLECTING POOL FELONY CASE — TRUMP REACTS...</a></li>
+                    
+                    <li><a href="https://www.reuters.com/video/watch/idRW433302072026RP1/" target="_blank">EXTREME HEAT EMERGENCY — RECORD TEMPERATURES FOR JULY 4TH WEEKEND...</a></li>
+                </ul>
+                <ul>
+                    <li class="sub"><a href="https://www.reuters.com/video/watch/idRW436102072026RP1/" target="_blank">New York, Atlanta open cooling centres as heat index hits 110°F...</a></li>
+                    
+                    <li><a href="https://www.usatoday.com/story/news/usa250/2026/07/02/federal-employees-off-july-3-2026-holiday-calendar/90781345007/" target="_blank">JULY 3 IS A FEDERAL HOLIDAY — GOVERNMENT OFFICES CLOSED TODAY...</a></li>
+                    
+                    <li><a href="https://www.reuters.com/world/china/global-markets-wrapup-1-2026-07-02/" target="_blank">US JOBS DATA DUE TODAY — MARKETS BRACE FOR RATE HIKE SIGNAL...</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- World Newspapers -->
+        <div class="world-newspapers">
+            <h2>WORLD NEWSPAPERS</h2>
+            <div class="newspapers-grid">
+                <a href="https://www.theguardian.com" target="_blank">GUARDIAN (UK)</a>
+                <a href="https://www.telegraph.co.uk" target="_blank">TELEGRAPH (UK)</a>
+                <a href="https://www.thetimes.co.uk" target="_blank">TIMES (UK)</a>
+                <a href="https://www.lemonde.fr" target="_blank">LE MONDE (FR)</a>
+                <a href="https://www.spiegel.de" target="_blank">DER SPIEGEL (DE)</a>
+                <a href="https://www.elpais.com" target="_blank">EL PAIS (ES)</a>
+                <a href="https://www.corriere.it" target="_blank">CORRIERE (IT)</a>
+                <a href="https://www.asahi.com" target="_blank">ASAHI (JP)</a>
+                <a href="https://www.scmp.com" target="_blank">SCMP (HK)</a>
+                <a href="https://www.thehindu.com" target="_blank">THE HINDU (IN)</a>
+                <a href="https://www.smh.com.au" target="_blank">SMH (AU)</a>
+                <a href="https://www.globo.com" target="_blank">O GLOBO (BR)</a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <a href="https://weather.com" target="_blank">WEATHER</a>
+            <a href="https://www.google.com/finance" target="_blank">STOCKS</a>
+            <a href="https://www.google.com/maps" target="_blank">MAPS</a>
+            <a href="https://www.imdb.com" target="_blank">MOVIES</a>
+            <a href="https://www.yelp.com" target="_blank">RESTAURANTS</a>
+            <a href="https://www.zillow.com" target="_blank">REAL ESTATE</a>
+            <a href="https://www.indeed.com" target="_blank">JOBS</a>
+            <a href="https://www.amazon.com" target="_blank">SHOPPING</a>
+        </div>
+
+        <!-- RPM Earnings Table -->
+        <div class="rpm-section">
+            <h3>PUBLISHER RPM EARNINGS (Q2 2026)</h3>
+            <table class="rpm-table">
+                <thead>
+                    <tr>
+                        <th>Publisher</th>
+                        <th>Traffic (M)</th>
+                        <th>RPM</th>
+                        <th>Revenue</th>
+                        <th>Primary Network</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://www.nytimes.com" target="_blank">NY Times</a></td>
+                        <td>450</td>
+                        <td>$18.50</td>
+                        <td>$8.3M</td>
+                        <td>Direct Sales</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.washingtonpost.com" target="_blank">Washington Post</a></td>
+                        <td>320</td>
+                        <td>$16.20</td>
+                        <td>$5.2M</td>
+                        <td>Direct Sales</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.cnn.com" target="_blank">CNN</a></td>
+                        <td>580</td>
+                        <td>$14.80</td>
+                        <td>$8.6M</td>
+                        <td>Google Ad Manager</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.foxnews.com" target="_blank">Fox News</a></td>
+                        <td>490</td>
+                        <td>$15.30</td>
+                        <td>$7.5M</td>
+                        <td>Direct Sales</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.buzzfeed.com" target="_blank">BuzzFeed</a></td>
+                        <td>280</td>
+                        <td>$8.90</td>
+                        <td>$2.5M</td>
+                        <td>Mediavine</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.vox.com" target="_blank">Vox Media</a></td>
+                        <td>210</td>
+                        <td>$12.40</td>
+                        <td>$2.6M</td>
+                        <td>Concert</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.theatlantic.com" target="_blank">The Atlantic</a></td>
+                        <td>95</td>
+                        <td>$22.10</td>
+                        <td>$2.1M</td>
+                        <td>Direct Sales</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.vice.com" target="_blank">Vice</a></td>
+                        <td>180</td>
+                        <td>$9.70</td>
+                        <td>$1.7M</td>
+                        <td>Google Ad Manager</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Ad Networks -->
+        <div class="ad-networks">
+            <h3>AD NETWORKS & PLATFORMS</h3>
+            <div class="ad-grid">
+                <a href="https://www.google.com/adsense" target="_blank">Google AdSense</a>
+                <a href="https://www.google.com/admanager" target="_blank">Google Ad Manager</a>
+                <a href="https://www.mediavine.com" target="_blank">Mediavine</a>
+                <a href="https://www.adthrive.com" target="_blank">AdThrive</a>
+                <a href="https://www.ezoic.com" target="_blank">Ezoic</a>
+                <a href="https://www.sovrn.com" target="_blank">Sovrn</a>
+                <a href="https://www.media.net" target="_blank">Media.net</a>
+                <a href="https://www.pubmatic.com" target="_blank">PubMatic</a>
+                <a href="https://www.openx.com" target="_blank">OpenX</a>
+                <a href="https://www.indexexchange.com" target="_blank">Index Exchange</a>
+                <a href="https://www.criteo.com" target="_blank">Criteo</a>
+                <a href="https://www.taboola.com" target="_blank">Taboola</a>
+                <a href="https://www.outbrain.com" target="_blank">Outbrain</a>
+                <a href="https://www.revcontent.com" target="_blank">RevContent</a>
+                <a href="https://www.mgid.com" target="_blank">MGID</a>
+                <a href="https://www.sharethrough.com" target="_blank">Sharethrough</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            THE DAILY GLOBE © 2026 — thedailyglobe.com • All links open in new window • Updated daily with the world's top stories
+        </div>
+    </div>
+</body>
+</html>
