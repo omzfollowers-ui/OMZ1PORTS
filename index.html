@@ -1,14 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OMZ Sports</title>
-    <meta name="description" content="OMZ Sports landing page for live matches, highlights, podcasts, and premium coverage." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMZ Sports - Every Sport. Every Day.</title>
+    <meta name="description" content="Latest football news, transfers, live scores & highlights from around the world.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; background: #f8f9fa; color: #333; }
+        header { background: #0f172a; color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #ef4444; }
+        .nav-links a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: #ef4444; }
+        .hero { background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://source.unsplash.com/random/1600x900/?stadium'); background-size: cover; color: white; text-align: center; padding: 120px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { color: #1e2937; border-bottom: 3px solid #ef4444; padding-bottom: 10px; margin-bottom: 20px; }
+        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        footer { background: #0f172a; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        .btn { background: #ef4444; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    </style>
+</head>
+<body>
 
+    <header>
+        <nav>
+            <div class="logo">OMZ Sports</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Football</a>
+                <a href="#">Transfers</a>
+                <a href="#">Scores</a>
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Every Sport. Every Day.</h1>
+        <p style="font-size: 1.4rem; max-width: 700px; margin: 20px auto;">Latest news • Transfers • Live scores • Highlights</p>
+        <a href="#scores" class="btn">View Live Scores</a>
+    </section>
+
+    <div class="container">
+
+        <section id="worldcup">
+            <h2>🏆 World Cup 2026 Latest</h2>
+            <div class="card">
+                <h3>Update this section daily with real news</h3>
+                <p>Currently showing placeholder content. I will help you replace it with fresh content.</p>
+            </div>
+        </section>
+
+        <section id="scores">
+            <h2>📈 Live Scores & Fixtures</h2>
+            <div class="card">
+                <p><strong>Live scores will be added here soon.</strong><br>
+                We can connect a free sports API in the next steps.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔄 Transfer Centre</h2>
+            <div class="card">Latest transfer rumors and confirmed deals will appear here.</div>
+        </section>
+
+        <section>
+            <h2>Latest News</h2>
+            <div class="card">Fresh articles will be added regularly.</div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 OMZ Sports • <a href="mailto:contact@omzsports.com" style="color:#ef4444;">contact@omzsports.com</a></p>
+        <p><a href="media-kit.html" style="color:#ef4444;">Media Kit</a> | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
